@@ -2,8 +2,10 @@ import tkinter as tk
 
 LARGE_FONT_STYLE = ("Arial", 40, "bold")
 SMALL_FONT_STYLE = ("Arial", 16)
+DIGITS_FONT_STYLE =("Arial", 24, "bold")
 LIGHT_GRAY = "#F5F5F5"
 LABEL_COLOR = "#25265E"   
+WHITE = "#FFFFFF"
 
 class Calculator:
     def __init__(self):
@@ -27,6 +29,7 @@ class Calculator:
             0:(4,2), '.':(4,1)
         }
         self.buttons_frame = self.create_buttons_frame()
+        self.create_digit_buttons()
 
     def create_display_labels(self):
         total_label = tk.Label(self.display_frame, text=self.total_expression, anchor=tk.E, bg=LIGHT_GRAY, fg=LABEL_COLOR, padx=24, font=SMALL_FONT_STYLE)
@@ -41,6 +44,11 @@ class Calculator:
         frame = tk.Frame(self.window, height=221, bg = LIGHT_GRAY)
         frame.pack(expand=True, fill="both")
         return frame
+
+    def create_digit_buttons(self):
+        for digit,grid_value in self.digits.items():
+            button = tk.Button(self.buttons_frame, text=str(digit),bg= WHITE, fg= LABEL_COLOR, font=DIGITS_FONT_STYLE, borderwidth=0)
+            button.grid(row=grid_value[0], column=grid_value[1], sticky=tk.NSEW)
 
     def create_buttons_frame(self):
         frame = tk.Frame(self.window)
