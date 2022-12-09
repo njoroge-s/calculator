@@ -19,6 +19,13 @@ class Calculator:
         # display and button frames
         self.display_frame = self.create_display_frame()
         self.total_label, self.label = self.create_display_labels()
+
+        self.digits = {
+            7:(1,1), 8:(1, 2), 9:(1, 3),
+            4:(2,1), 5:(2,2), 6:(2,3),
+            1:(3,1), 2:(3,2), 3:(3,3),
+            0:(4,2), '.':(4,1)
+        }
         self.buttons_frame = self.create_buttons_frame()
 
     def create_display_labels(self):
