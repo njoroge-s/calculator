@@ -9,16 +9,26 @@ class Calculator:
         self.window.resizable(0, 0)
         self.window.title("Calculator")
 
+        self.total_expression = "0"
+        self.current_expression = "0"
+
         # display and button frames
         self.display_frame = self.create_display_frame()
         self.buttons_frame = self.create_buttons_frame()
+
+    def create_display_labels(self):
+        total_label = tk.Label(self.display_frame, text=self.total_expression, anchor=tk.E)
 
     def create_display_frame(self):
         frame = tk.Frame(self.window, height=221, bg = LIGHT_GRAY)
         frame.pack(expand=True, fill="both")
         return frame
 
-    def create_buttons_frame()
+    def create_buttons_frame(self):
+        frame = tk.Frame(self.window)
+        frame.pack(expand=True, fill="both")
+        return frame
+
 
     def run(self):
         self.window.mainloop()
